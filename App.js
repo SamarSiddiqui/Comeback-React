@@ -1,29 +1,24 @@
-/**
- * parentDiv
- * childDiv1
- * childDiv2
- * H1tag
- * childDiv2
- * childDiv1
- * parentDiv
- * 
- */
+import React from "react"
+import ReactDOM from "react-dom/client"
 
+const jsxHeading =  <h1 className="heading">Hello From Jsx.🚀💕</h1>
 
+let Footer =  () =>{
+    return  <h3>Hello From Footer.</h3>
+}
 
+let Heading = ()=>(
+        <div id="parent">
+            <h1>Hello From Functional Component. </h1>
+            {Footer()}
+            {console.log(3+3)
+            }
+            <Footer />
+        </div> 
+   )
+    
 
+  
+const root = ReactDOM.createRoot(document.getElementById("root"))
 
-
-let parent = React.createElement("div",{id:"parent"},
-
-    [React.createElement("div",{id:"childOne"},[React.createElement("h1",
-        {id:"ChildOneHeading"}, "Hello I am H1child Tag."),React.createElement("h1",
-            {id:"ChildOneHeading"}, "Hello I am H1child Tag.")]),
-            React.createElement("div",{id:"childTwo"},[React.createElement("h1",
-                {id:"ChildTwoHeading"}, "Hello I am H2child Tag."),React.createElement("h1",
-                    {id:"ChildTwoHeading"}, "Hello I am H2child Tag.")])
-        ]
-)
-let root = ReactDOM.createRoot(document.getElementById("root"))
-
-root.render(parent)
+root.render(<Heading />)
