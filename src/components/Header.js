@@ -1,10 +1,15 @@
 import { Res_Logo } from "../utils/constants";
-import { useState } from "react";
+import {  useState } from "react";
+import { Link } from "react-router-dom"
+
 export const Header = ()=> {
 
     let [btnState,setbtnState] = useState("Log In")
-    
-    console.log(btnState);
+     
+   const styleLink = {
+     textDecoration: "none",
+     color: 'red'
+   }
     
     return (
         <div className="header">
@@ -14,9 +19,15 @@ export const Header = ()=> {
             
             <div className="nav-items">
                 <ul >
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Cotacts</li>
+                    <li>
+                        <Link to={"/"} style={styleLink}>Home</Link>
+                    </li>
+                    <li>
+                        <Link to={"/about"} style={styleLink}>About</Link>
+                    </li>
+                    <li>
+                    <Link to={"/contact"} style={styleLink}>Contact</Link>
+                    </li>
                     <li>Profile</li>
                     <li>Know More</li>
                     <li>Cart</li>

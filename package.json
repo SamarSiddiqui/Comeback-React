@@ -2,10 +2,9 @@
   "name": "comback-react",
   "version": "1.0.0",
   "description": "This Is Samar's Comeback React.",
-  
   "scripts": {
     "start": "parcel index.html",
-    "build":"parcel build index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "author": "Samar",
@@ -16,7 +15,8 @@
   },
   "dependencies": {
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.27.0"
   },
   "browsersList": [
     "last 2 versions"

@@ -14,14 +14,13 @@
     width: 100px;
 }
 
-.nav-items ul{
+.nav-items >ul{
     display: flex;
     list-style: none ;
     padding: 10px 20px;
 }
 
-li{
-    /* color: violet; */
+.nav-items ul li{
     padding: 0 10px;
     font-size: 22px;
 
@@ -86,19 +85,26 @@ li{
 .search button{
   padding: 5px 10px;
 }
-/* 
-.shimmerContainer{
-    border: 2px solid blueviolet;
-    display: flex;
-    flex-wrap: wrap;
-    
+
+.menuImage{
+  width: 20%;
 }
 
-.shimmerCard {
-    width: 200px;
-    height: 300px;
-    border: 2px solid rgb(226, 43, 43);
+/* .menuPage > .resMenuList {
+ list-style: circle;
 } */
+
+.resMenuList {
+  list-style-type: disc; /* Or square, circle, etc., depending on the style you want */
+}
+
+
+
+
+
+
+
+
 
 .shimmerContainer {
     display: grid;
