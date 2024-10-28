@@ -22,8 +22,8 @@ const Body = ()=> {
     const data = await fetch(MainPage_URL)
 
     const json = await data.json()     
-    setListofRes(json?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle?.restaurants)
-    setfilteredRestro(json?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle?.restaurants)
+    setListofRes(json?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle?.restaurants)
+    setfilteredRestro(json?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle?.restaurants)
 
     // console.log(json);
     

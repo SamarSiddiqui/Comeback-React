@@ -98,6 +98,11 @@
   list-style-type: disc; /* Or square, circle, etc., depending on the style you want */
 }
 
+.userCard{
+  padding: 10px;
+  margin: 5px;
+  border: 2px solid black;
+}
 
 
 
