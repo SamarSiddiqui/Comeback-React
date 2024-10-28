@@ -1,35 +1,20 @@
 import RestaurantCard from "./RestaurantCards";
-// import { resList } from "./RestaurantCards";
-import { useState,useEffect } from "react";
+import { useState} from "react";
 import Shimmer from "./Shimmer";
-import { MainPage_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
+import useResCard from "../utils/useResCard";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = ()=> {
-
-    const [listofRes,setListofRes] = useState([])
-    const [filteredRestro,setfilteredRestro] = useState([])
-   
-   
+    
+    const [listofRes,filteredRestro,setfilteredRestro,setListofRes] = useResCard()
     const [searchText,setSearchText] = useState("")
     
-    useEffect(()=>{
-     fetchData()
-    },[])
-     
-    const fetchData = async () => {
     
-    const data = await fetch(MainPage_URL)
-
-    const json = await data.json()     
-    setListofRes(json?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle?.restaurants)
-    setfilteredRestro(json?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle?.restaurants)
-
-    // console.log(json);
+    const onlineStatus = useOnlineStatus()
     
-   
-}
-
+    if(onlineStatus === false){return   <h1>Oops!Check your Internet Connection..</h1>}
+    
     
     return listofRes?.length===0 ?  <Shimmer /> :(
         <div className="body">
@@ -38,26 +23,30 @@ const Body = ()=> {
                <input type="text" className="search-box" value={searchText} onChange={(e)=> {
                     setSearchText(e.target.value)
                }}/> 
+
     <button onClick={()=> {
     const filteredRestro = listofRes.filter((restro)=>(
     restro.info.name.toLowerCase().includes(searchText.toLowerCase())
                 
     ))
     setfilteredRestro(filteredRestro)
-                // filter the restaurant based on the keywords and update the UI
-                // keywords will be getting from SearchText
+                
     }}>Search</button>
              </div>
-            <button className="filterBtn" 
+             
+     <button className="filterBtn" 
             onClick={()=>{
             let filteResList = listofRes.filter((restarun)=>
-                restarun.info.avgRating>4.6
-            )
-            setListofRes(filteResList)
+                restarun.info.avgRating>4.4)    
 
-            
+           console.log(filteResList);
+            setfilteredRestro(filteResList)
+
             }}
-            > Top Rated Restaurant</button>
+            > Top Rated Restaurant
+            
+            </button>
+
             </div>
         
         <div className="resContainer">

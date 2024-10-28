@@ -1,11 +1,14 @@
 import { Res_Logo } from "../utils/constants";
 import {  useState } from "react";
 import { Link } from "react-router-dom"
+import useOnlineStatus from "../utils/useOnlineStatus";
+
 
 export const Header = ()=> {
 
+    const onlineStatus = useOnlineStatus()
+
     let [btnState,setbtnState] = useState("Log In")
-     
    const styleLink = {
      textDecoration: "none",
      color: 'red'
@@ -19,6 +22,7 @@ export const Header = ()=> {
             
             <div className="nav-items">
                 <ul >
+                    
                     <li>
                         <Link to={"/"} style={styleLink}>Home</Link>
                     </li>
@@ -28,9 +32,12 @@ export const Header = ()=> {
                     <li>
                     <Link to={"/contact"} style={styleLink}>Contact</Link>
                     </li>
-                    <li>Profile</li>
-                    <li>Know More</li>
+                    <li>
+                    <Link to={"/grocery"} style={styleLink}>Grocery</Link>
+                    </li>
+                    
                     <li>Cart</li>
+                    <li>{onlineStatus?"🟢":"🔴"}</li>
                    <li><button onClick={()=>{
                      btnState==="Log In"
                        ? setbtnState("Log Out")
