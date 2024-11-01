@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 *{
     margin: 0;
     padding: 0;
@@ -14,6 +19,9 @@
     width: 100px;
 }
 
+/* .nav-items{
+  width: 70%;
+} */
 .nav-items >ul{
     display: flex;
     list-style: none ;
@@ -27,8 +35,8 @@
 }
 
 .nav-items ul li button {
-  padding: 5px;
-  font-weight: bolder;
+  padding:0  5px; 
+  /* font-weight: bolder;  */
   cursor: pointer;
 
 }
@@ -79,7 +87,7 @@
 }
 .search input {
   margin: 5px;
-  padding: 5px;
+  /* padding: 5px; */
 }
 
 .search button{
@@ -90,12 +98,8 @@
   width: 20%;
 }
 
-/* .menuPage > .resMenuList {
- list-style: circle;
-} */
-
 .resMenuList {
-  list-style-type: disc; /* Or square, circle, etc., depending on the style you want */
+  list-style-type: disc; 
 }
 
 .userCard{
@@ -103,6 +107,129 @@
   margin: 5px;
   border: 2px solid black;
 }
+
+.menuPage{
+  border: 2px solid red;
+  /* display: flex;
+  justify-content: center; */
+  font-weight: bolder;
+  font-size: 16px;
+  width: 60%;
+  margin: auto;
+  
+
+}
+
+
+.hotelBox h1{
+  margin: 5px 10px;
+  font-size: 20px;
+}
+
+.hotelBox h2{
+  margin: 5px;
+}
+.descriptionBox{
+  border: 2px solid rgb(207, 185, 18);
+  display: flex;
+}
+
+.accordionMain{
+  /* border: 2px solid rgb(8, 243, 113); */
+  background-color: rgb(238, 235, 235);
+  
+}
+
+.accordion{
+  /* border: 2px solid rgb(8, 243, 113); */
+  margin: 10px 0;
+  padding: 13px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow:1px 2px rgb(219, 219, 217);
+  cursor: pointer;
+  font-size: 17px;
+
+}
+
+/* .accordion span {
+} */
+
+.menuList{
+  margin:  10px;
+  /* border: 5px solid red; */
+}
+
+
+.mainItemBox{
+  border-bottom: 2px solid burlywood;
+  margin: 5px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.itemDescription{
+  width: 80%;
+
+}
+.mainItemBox p {
+  margin: 10px 0;
+  font-size: 14px;
+  font-weight: 100;
+}
+.itemsPhoto{
+  position: relative;
+}
+.itemsPhoto img{
+  width: 150px;    
+    height: 150px; 
+    object-fit: cover; 
+  border-radius: 10px;
+}
+
+.itemsPhoto button {
+  position: absolute;
+  bottom: 5%;
+  left: 30%;
+  background-color: black;
+  color: #f0f0f0;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -119,9 +246,9 @@
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-  }
+}
   
-  .shimmerCard {
+.shimmerCard {
     background: #f6f7f8;
     border-radius: 10px;
     position: relative;
@@ -133,9 +260,9 @@
     font-size: 18px;
     color: #aaa;
     font-weight: 500;
-  }
+}
   
-  .shimmerCard::before {
+.shimmerCard::before {
     content: "";
     position: absolute;
     top: 0;
@@ -149,7 +276,7 @@
       rgba(255, 255, 255, 0) 100%
     );
     animation: shimmer 1.5s infinite;
-  }
+ }
   
   @keyframes shimmer {
     0% {

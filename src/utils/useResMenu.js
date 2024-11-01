@@ -6,7 +6,7 @@ const useResMenu = (resId) => {
 
     useEffect(()=>{
         fetchMenu()
-    })
+    },[])
 
     const fetchMenu = async ()=>{
      const data = await fetch(ResMenu_URL+resId)
@@ -14,7 +14,8 @@ const useResMenu = (resId) => {
 
      setresInfo(response)
 
-
+    // console.log(response);
+    
     }
 
     return resInfo

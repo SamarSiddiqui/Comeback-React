@@ -1,27 +1,30 @@
 import { Res_Logo } from "../utils/constants";
-import {  useState } from "react";
+import {  useContext, useState } from "react";
 import { Link } from "react-router-dom"
 import useOnlineStatus from "../utils/useOnlineStatus";
-
+import UserContext from "../utils/UserContext";
 
 export const Header = ()=> {
 
     const onlineStatus = useOnlineStatus()
-
-    let [btnState,setbtnState] = useState("Log In")
-   const styleLink = {
-     textDecoration: "none",
-     color: 'red'
-   }
     
+   const {name} = useContext(UserContext)
+   
+  
+    let [btnState,setbtnState] = useState("Log In")
+    const styleLink = {
+    textDecoration: "none",
+    color: 'red'
+    }
+
     return (
-        <div className="header">
+        <div className="flex justify-between border-solid border-b border-black">
             <div className="logoContainer"> 
             <img className="logo" src={Res_Logo}/>  
             </div>
             
             <div className="nav-items">
-                <ul >
+                <ul>
                     
                     <li>
                         <Link to={"/"} style={styleLink}>Home</Link>
@@ -36,9 +39,9 @@ export const Header = ()=> {
                     <Link to={"/grocery"} style={styleLink}>Grocery</Link>
                     </li>
                     
-                    <li>Cart</li>
+                    <li style={styleLink} className="font-bold">{name}</li>
                     <li>{onlineStatus?"🟢":"🔴"}</li>
-                   <li><button onClick={()=>{
+                   <li><button className= "border border-solid border-black" onClick={()=>{
                      btnState==="Log In"
                        ? setbtnState("Log Out")
                        :setbtnState("Log In")

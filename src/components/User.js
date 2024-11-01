@@ -1,20 +1,9 @@
-import { useEffect, useState } from "react";
+import {useState } from "react";
 
 const User = (props)=> {
     const [initial,setInitial] = useState(0)
     
-    useEffect(()=>{
-        const timer = setInterval(()=>{
-            console.log("Hello useEffectTimer");
-            
-        },1000)
-        
-        console.log(" useEffect");
-        return()=>{
-            clearInterval(timer)
-            console.log(" useEffect Return");
-        }
-    },[])
+    
     return (
         <div className="userCard">
              <h1>Count = {initial}</h1>

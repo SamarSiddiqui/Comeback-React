@@ -1,4 +1,6 @@
 import React from "react"
+
+
 class UserClass extends React.Component {
   
     
@@ -13,21 +15,15 @@ class UserClass extends React.Component {
         }
 
     
-        console.log("Child Constructore is Called");
     }
     
     componentDidMount() {
-      this.timer =   setInterval(()=>{
-
-        console.log("Hello");
-
-       },1000)
-        console.log("Child Component did Mount Called");
+    
+        // console.log("Child Component did Mount Called");
         
     }
     componentWillUnmount () {
-        clearInterval(this.timer)
-        console.log("Child Component did unMount Called");
+        // console.log("Child Component did unMount Called");
     }
     componentDidUpdate() {
         console.log("Child Component did Update Called");
@@ -42,8 +38,11 @@ class UserClass extends React.Component {
         
     return (
             <div className="userCard">
+                
+                 
+               
                 <h1>{count}</h1>
-
+                 
                 <button onClick={()=>{
                     this.setState ({
                         count: count+1

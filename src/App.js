@@ -1,27 +1,45 @@
-import React, { lazy } from "react"
+import React, { lazy, useEffect, useState } from "react"
 import ReactDOM from "react-dom/client"
 import { createBrowserRouter,RouterProvider, Outlet } from "react-router-dom"
 import Header from "./components/Header"
 import Body from "./components/Body"
-// import About from "./components/About"
 import Contact from "./components/Contact"
 import Error from "./components/Error"
-// import ResMenu from "./components/ResMenu"
 import { lazy,Suspense } from "react"
 import Shimmer from "./components/Shimmer"
+import UserContext from "./utils/UserContext"
 
 const Grocery = lazy(()=>import ("./components/Grocery"))
 const ResMenu = lazy(()=>import ("./components/ResMenu"))
 const About = lazy(()=>import ("./components/About"))
 
 const AppLayout = () => {
+    const [userInfo,setuserInfo] = useState("")
+
+    useEffect(()=>{
+        let data = {
+            name:"Samar Siddiqui"
+        }
+        setuserInfo(data.name)
+
+    },[])
+
+  
     return ( 
+        <UserContext.Provider value={{name:userInfo,setuserInfo}}>
+
         <div className="app">
+          
+
             <Header/>
+            
             <Outlet />
         <h1>Hello from App</h1>
 
         </div>
+        </UserContext.Provider>
+       
+       
     )
 }
 
