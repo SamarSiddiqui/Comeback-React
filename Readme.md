@@ -16,3 +16,13 @@ Footer
 -Contact
 
 */ 
+
+
+## Redux Tool kit
+
+ - Install @reduxjs/toolkit & react-redux
+ - Build our Store
+ - Connect our store with our App
+ - Slice(cartSlice)
+ - dispatch(action)
+ - Selector 

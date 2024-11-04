@@ -30,7 +30,7 @@
 
 .nav-items ul li{
     padding: 0 10px;
-    font-size: 22px;
+    font-size: 20px;
 
 }
 
@@ -197,7 +197,12 @@
   border-radius: 10px;
 }
 
-
+.clearBtn{
+  background-color: rgb(103, 106, 106);
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+}
 
 
 

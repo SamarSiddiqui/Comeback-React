@@ -1,11 +1,19 @@
+import { useDispatch } from "react-redux";
 import { MenuList_URL } from "../utils/constants";
+import {addItems} from "../utils/cartSlice";
+
+
 
 const MenuList = ({data})=> {
-       
-    // let list = data
-    // console.log(childProp);
     
-
+    const dispatch = useDispatch()
+     
+    const handleAddItem = (item)=>{
+        //dispatchAnAction
+        dispatch(addItems(item))
+    }
+    
+    
     return (
         <div className="menuList">
             <div>
@@ -15,19 +23,22 @@ const MenuList = ({data})=> {
                 <div className="mainItemBox">
                     <div className="itemDescription" >
 
-                    <h2>{item.card.info.name}</h2> 
-                    <span>{item.card.info.itemAttribute.vegClassifier === "VEG"? "🟢":"🔴"}</span>
-                    
-                    <span> ₹ {item.card.info.defaultPrice/100 || item.card.info.price/100}</span> 
-                    <p>{item.card.info.description}</p>
-                    </div>
+                        <h2>{item.card.info.name}</h2> 
+                        <span>{item.card.info.itemAttribute.vegClassifier === "VEG"? "🟢":"🔴"}</span>
+                        
+                        <span> ₹ {item.card.info.defaultPrice/100 || item.card.info.price/100}</span> 
+                        <p>{item.card.info.description}</p>
+            </div>
 
-                    <div className="itemsPhoto">
-                        <img src={MenuList_URL + item.card.info.imageId } alt={item.card.info.name}/>
-                        <button>Add+</button>
-                    </div>
-                    </div>
-                </div>
+            <div className="itemsPhoto">
+                <img src={MenuList_URL + item.card.info.imageId } alt={item.card.info.name}/>
+                 
+            <button onClick={()=>(handleAddItem(item))}  
+                >Add+</button>
+            
+            </div>
+        </div>
+    </div>
             ))
         }
             </div>
@@ -35,4 +46,4 @@ const MenuList = ({data})=> {
     )
 }
 
-export default MenuList
+export default MenuList;
